@@ -7,22 +7,65 @@
 
     <script src="./vue.js"></script>
     <title>VueJS Study</title>
+    <style>
+
+        .main-div{
+
+            background-color: white;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .secondary-div{
+            background-color: white;
+            border: 1px solid black;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .green{
+            background-color: green;
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">
-        {{ message }}
+        
+        <div class="main-div" :class="color">
+
+        </div>
+        <div class="secondary-div red" @click="colorirDiv('red')">
+
+        </div>
+        <div class="secondary-div blue" @click="colorirDiv('blue')">
+
+        </div>
+        <div class="secondary-div green" @click="colorirDiv('green')">
+
+        </div>
+
     </div>
 
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                message: "Teste puxando texto do view"
+                color: ''
             },
             methods: {
-                somar: function somar() {
-                    return 4+2;
-                },
+                colorirDiv(color) {
+                    this.color = color;
+                }
             }
         });
     </script>
